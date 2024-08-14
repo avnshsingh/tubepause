@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Tubepause",
+  "version": "0.0.2",
+  "description": "Automatically plays YouTube videos when active and pauses when switching tabs or apps. Enhances multitasking and saves resources.",
+  "action": { "default_popup": "index.html" },
+  "permissions": ["storage", "tabs", "activeTab"],
+  "icons": {
+    "128": "src/assets/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["src/content.ts"]
+    }
+  ]
+}
